@@ -11,6 +11,12 @@ namespace Diceware
         Diceware,
         Beale
     }
+    public enum Delimitter
+    {
+        Space,
+        Tab,
+        Custom
+    }
     public class Diceware
     {
         public int PasswordLength { get; set; }

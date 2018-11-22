@@ -15,6 +15,16 @@ namespace DicewareGenerator.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Index(DicewareModel model)
+        {
+            Diceware.Diceware dw = new Diceware.Diceware(model.SelectedWordList, model.PasswordLength, model.PasswordDelimitter);
+            model.GeneratedPassword = dw.GetPassword();
+
+
+            return View(model);
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

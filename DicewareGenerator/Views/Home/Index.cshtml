@@ -7,4 +7,36 @@
 }
 
 <h2>Diceware Generator</h2>
-@dw.GetPassword()
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col">Password Length</div>
+            <div class="col">@Html.EditorFor(x => x.PasswordLength, new { @class = "input-sm" })</div>
+        </div>
+        <div class="row">
+            <div class="col">Word List</div>
+            <div class="col">
+                @Html.DropDownListFor(x=>x.SelectedWordList, new SelectList(Enum.GetValues(typeof(Diceware.Wordlist))), "Select Wordlist", new { @class = "input-sm" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Delimitter</div>
+            <div class="col">
+                @Html.EditorFor(x => x.PasswordDelimitter, new { @class = "input-sm" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Generated Password</div>
+            <div class="col">
+                @Html.DisplayFor(x => x.GeneratedPassword, new { @class = "input-sm" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input name="GeneratePassword" type="submit" value="Generate" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
