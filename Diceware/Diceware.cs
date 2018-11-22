@@ -27,8 +27,8 @@ namespace Diceware
         public Diceware(Wordlist wordlist, int Length, string delimitter)
         {
             SelectedWordlist = wordlist;
-            PasswordLength = Length;
-            WordDelimitter = delimitter;
+            PasswordLength = Length <=0 ? 1: Length;
+            WordDelimitter = delimitter.Trim().Equals(string.Empty) ? " " : delimitter;
             WordList = GetWordList();
         }
         

@@ -18,7 +18,7 @@ namespace DicewareGenerator.Controllers
         [HttpPost]
         public IActionResult Index(DicewareModel model)
         {
-            Diceware.Diceware dw = new Diceware.Diceware(model.SelectedWordList, model.PasswordLength, model.PasswordDelimitter);
+            Diceware.Diceware dw = new Diceware.Diceware(model.SelectedWordList, model.PasswordLength, model.PasswordDelimitter==null?string.Empty : model.PasswordDelimitter);
             model.GeneratedPassword = dw.GetPassword();
 
 
