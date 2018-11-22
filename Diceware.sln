@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diceware", "Diceware\Diceware.csproj", "{7F7C5C50-455A-4ED3-846D-616CBDA099EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diceware", "Diceware\Diceware.csproj", "{7F7C5C50-455A-4ED3-846D-616CBDA099EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DicewareDebugger", "DicewareDebugger\DicewareDebugger.csproj", "{8DDBCF0F-C384-4525-A8D3-864CA517B6E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DicewareGenerator", "DicewareGenerator\DicewareGenerator.csproj", "{305CC788-C300-492F-995F-B9447B6625B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7F7C5C50-455A-4ED3-846D-616CBDA099EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F7C5C50-455A-4ED3-846D-616CBDA099EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F7C5C50-455A-4ED3-846D-616CBDA099EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DDBCF0F-C384-4525-A8D3-864CA517B6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DDBCF0F-C384-4525-A8D3-864CA517B6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DDBCF0F-C384-4525-A8D3-864CA517B6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DDBCF0F-C384-4525-A8D3-864CA517B6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{305CC788-C300-492F-995F-B9447B6625B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305CC788-C300-492F-995F-B9447B6625B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305CC788-C300-492F-995F-B9447B6625B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305CC788-C300-492F-995F-B9447B6625B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

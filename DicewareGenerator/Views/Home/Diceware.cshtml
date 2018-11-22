@@ -1,0 +1,8 @@
+﻿@page
+@model DicewareModel
+@{
+    Diceware.Diceware dw = new Diceware.Diceware(Diceware.Wordlist.Diceware, 5, " ");
+}
+
+<h2>Diceware Generator</h2>
+@dw.GetPassword()
