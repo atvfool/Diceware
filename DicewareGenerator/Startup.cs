@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using DicewareGenerator.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace DicewareGenerator
 {
@@ -47,6 +48,10 @@ namespace DicewareGenerator
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+            });
+            app.Run(context =>
+            {
+                return context.Response.WriteAsync("Hello from ASP.NET Core!");
             });
         }
     }
