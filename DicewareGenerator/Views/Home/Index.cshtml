@@ -2,41 +2,88 @@
     ViewData["Title"] = "Home Page";
 }
 @model DicewareModel
-@{
-    Diceware.Diceware dw = new Diceware.Diceware(Diceware.Wordlist.Diceware, 5, " ");
-}
 
-<h2>Diceware Generator</h2>
 @using (Html.BeginForm())
 {
     <div class="container">
         <div class="row">
-            <div class="col">Password Length</div>
-            <div class="col">@Html.EditorFor(x => x.PasswordLength, new { @class = "input-sm" })</div>
-        </div>
-        <div class="row">
-            <div class="col">Word List</div>
-            <div class="col">
-                @Html.DropDownListFor(x=>x.SelectedWordList, new SelectList(Enum.GetValues(typeof(Diceware.Wordlist))), "Select Wordlist", new { @class = "input-sm" })
+            <div class="col align-self-center">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Password Length</span>
+                    </div>
+                    @Html.EditorFor(x => x.PasswordLength, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col">Delimitter</div>
-            <div class="col">
-                @Html.EditorFor(x => x.PasswordDelimitter, new { @class = "input-sm" })
+            <div class="col align-self-center">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="SelectedWordList">Word List</label>
+                    </div>
+                    @Html.DropDownListFor(x => x.SelectedWordList, new SelectList(Enum.GetValues(typeof(Diceware.Wordlist))), "Select Wordlist", new { @class = "custom-select" })
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col">Generated Password</div>
-            <div class="col">
-                @Html.DisplayFor(x => x.GeneratedPassword, new { @class = "input-sm" })
+            <div class="col align-self-center">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Delimitter</span>
+                    </div>
+                    @Html.EditorFor(x => x.PasswordDelimitter, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <input name="GeneratePassword" type="submit" value="Generate" class="btn btn-default" />
+            <div class="col align-self-center">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button type="submit" class="btn btn-outline-primary">Roll for Password <i class="fas fa-dice"></i></button>
+                    </div>
+                    <input id="GenPass" type="text" readonly class="form-control" value="@Html.ValueFor(x=>x.GeneratedPassword)" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" id="btnCopyToClipboard">Copy <i class="far fa-clipboard"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+}
+
+<!-- Flexbox container for aligning the toasts -->
+<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="height: 200px;">
+
+    <!-- Then put toasts within -->
+    <div class="toast" role="alert" data-delay="2500" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <i class="far fa-clipboard"></i>
+            <strong class="mr-auto">&nbsp;Diceware</strong>
+            <small>just now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Password Copied To Clipboard!
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        $("#btnCopyToClipboard").click(function () {
+            var pass = $("#GenPass");
+
+            pass.select();
+
+            document.execCommand("copy");
+
+            $(".toast").toast('show');
+        });
+
+    </script>
 }
